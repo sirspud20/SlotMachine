@@ -18,14 +18,14 @@ export class keyDisplay {
     }
 
     //creates all the Sprites for the Key
-    private createKeySpriteArray() {
+    private createKeySpriteArray(): void {
         this.textureArray.map((texture, i) => {
             this.keySpriteArray.push(PIXI.Sprite.from(texture));
         })
     }
 
     //creates all the text for the Key
-    private createKeyTextArray() {
+    private createKeyTextArray(): void {
         let style = new PIXI.TextStyle({
             fontFamily: "Arial Black",
             fontStyle: "bold"
@@ -36,7 +36,7 @@ export class keyDisplay {
     }
 
     //sets and adds all created Sprites
-    private setupKeySprites() {
+    private setupKeySprites(): void {
         this.keySpriteArray.map((icon, i) => {
             GameManager.app.stage.addChild(icon);
             icon.position.set(100, 375 + (i * 50));
@@ -45,7 +45,7 @@ export class keyDisplay {
         })
     }
     //sets and adds all created Text
-    private setupKeyText() {
+    private setupKeyText(): void {
         this.keyTextArray.map((text, i) => {
             GameManager.app.stage.addChild(text);
             text.position.set(125, 375 + (i * 50));

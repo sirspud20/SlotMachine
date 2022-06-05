@@ -19,7 +19,7 @@ export class WinMessage {
     }
 
     //sets and adds WinText to stage
-    private setupWinText() {
+    private setupWinText(): void {
         GameManager.app.stage.addChild(this.text);
         this.text.position.set(100, 100);
     }

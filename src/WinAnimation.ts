@@ -1,6 +1,6 @@
 
 import { gsap } from "gsap";
-import { GlowFilter } from 'pixi-filters';
+import { GlowFilter, RGBSplitFilter } from 'pixi-filters';
 import { DroppedItem } from "./DroppedItem";
 import { Reel } from "./Reel";
 import { GameManager } from "./Index";
@@ -25,19 +25,19 @@ export class WinAnimation {
     }
 
     //public method to play both DroppdItem animation and Icon animation
-    public playWinAnimation() {
+    public playWinAnimation(): void {
         console.log("hello");
         this.iconTl.play(3);
         this.droppedItemTl.play(0);
 
     }
     //resets the Icon animation back to 0 ready to be played again
-    public resetIconAnimation() {
+    public resetIconAnimation(): void {
         this.iconTl.pause(0);
     }
 
     //creates and pauses icon animation
-    private setupIconAnimation() {
+    private setupIconAnimation(): void {
         this.reelArray.map((reel, i) => {
             reel.reel.filters = [new GlowFilter({ distance: 15, outerStrength: 2 })];
             this.iconTl.to(reel.reel.scale, { x: 1.5, y: 1.5, duration: 1, repeat: -1, yoyo: true, });
@@ -49,7 +49,7 @@ export class WinAnimation {
     }
 
     //creates and pauses droppedItem animation
-    private setupDroppedItemAnimation() {
+    private setupDroppedItemAnimation(): void {
         let bOS = (GameManager.app.stage.height + 100);
         this.droppedItemArray.map((droppedItem, i) => {
             this.droppedItemTl.to(droppedItem.droppedItem, { y: bOS, duration: (Math.random() * 2) + 1, delay: Math.random() * 1 }, "start",)

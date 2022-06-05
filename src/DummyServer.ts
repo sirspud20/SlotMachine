@@ -8,7 +8,7 @@ export class DummyServer {
     }
 
     //array of premade tickets for possible outcomes
-    private onLoadComplete() {
+    private onLoadComplete(): void {
         this.ticketArray = [
             { reel0: 1, reel1: 1, reel2: 1, reel3: 1, reel4: 1, win: true, score: 100 },
             { reel0: 2, reel1: 2, reel2: 2, reel3: 2, reel4: 2, win: true, score: 150 },
